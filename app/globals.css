@@ -1,0 +1,280 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color palette to earthy, warm tones for family therapy branding */
+  --background: #f7f5f0; /* Light beige background */
+  --foreground: #333333; /* Dark text for readability */
+  --card: #ffffff; /* White cards for contrast */
+  --card-foreground: #333333; /* Dark text on cards */
+  --popover: #ffffff; /* White popover backgrounds */
+  --popover-foreground: #333333; /* Dark text on popovers */
+  --primary: #b66a50; /* Warm terracotta for primary actions */
+  --primary-foreground: #ffffff; /* White text on primary buttons */
+  --secondary: #7a8450; /* Muted olive for secondary elements */
+  --secondary-foreground: #ffffff; /* White text on secondary buttons */
+  --muted: #dcc7aa; /* Soft tan for muted backgrounds */
+  --muted-foreground: #7b5e57; /* Warm brown text on muted backgrounds */
+  --accent: #7b5e57; /* Warm brown for accents */
+  --accent-foreground: #ffffff; /* White text on accent elements */
+  --destructive: #c62828; /* Red for errors */
+  --destructive-foreground: #ffffff; /* White text on error messages */
+  --border: #e9e1d3; /* Light sandy border */
+  --input: #ffffff; /* White input fields */
+  --ring: rgba(182, 106, 80, 0.3); /* Subtle ring for focus states */
+  --chart-1: #b66a50;
+  --chart-2: #dcc7aa;
+  --chart-3: #7a8450;
+  --chart-4: #7b5e57;
+  --chart-5: #f7f5f0;
+  --radius: 0.5rem;
+  --sidebar: #f7f5f0;
+  --sidebar-foreground: #333333;
+  --sidebar-primary: #b66a50;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #7a8450;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #e9e1d3;
+  --sidebar-ring: rgba(182, 106, 80, 0.3);
+}
+
+.dark {
+  --background: #2a2520;
+  --foreground: #f7f5f0;
+  --card: #3a342f;
+  --card-foreground: #f7f5f0;
+  --popover: #3a342f;
+  --popover-foreground: #f7f5f0;
+  --primary: #b66a50;
+  --primary-foreground: #ffffff;
+  --secondary: #7a8450;
+  --secondary-foreground: #ffffff;
+  --muted: #3a342f;
+  --muted-foreground: #dcc7aa;
+  --accent: #7b5e57;
+  --accent-foreground: #ffffff;
+  --destructive: #c62828;
+  --destructive-foreground: #ffffff;
+  --border: #4a443f;
+  --input: #3a342f;
+  --ring: rgba(182, 106, 80, 0.3);
+  --chart-1: #b66a50;
+  --chart-2: #dcc7aa;
+  --chart-3: #7a8450;
+  --chart-4: #7b5e57;
+  --chart-5: #f7f5f0;
+  --radius: 0.5rem;
+  --sidebar: #2a2520;
+  --sidebar-foreground: #f7f5f0;
+  --sidebar-primary: #b66a50;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #7a8450;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #4a443f;
+  --sidebar-ring: rgba(182, 106, 80, 0.3);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Enhanced animations and improved UX interactions */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.6s ease-out;
+}
+
+.animate-pulse-subtle {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Enhanced button interactions */
+.btn-enhanced {
+  @apply transition-all duration-300 ease-out;
+  @apply hover:scale-105 hover:shadow-lg;
+  @apply active:scale-95;
+  @apply focus:ring-2 focus:ring-primary/20 focus:outline-none;
+}
+
+/* Card hover effects */
+.card-interactive {
+  @apply transition-all duration-300 ease-out;
+  @apply hover:shadow-xl hover:-translate-y-1;
+  @apply hover:border-primary/20;
+}
+
+/* Form input enhancements */
+.input-enhanced {
+  @apply transition-all duration-200 ease-out;
+  @apply focus:ring-2 focus:ring-primary/20 focus:border-primary;
+  @apply hover:border-primary/40;
+}
+
+/* Loading states */
+.loading-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-slide-in-left,
+  .animate-slide-in-right,
+  .animate-scale-up,
+  .animate-pulse-subtle {
+    animation: none;
+  }
+
+  .btn-enhanced,
+  .card-interactive,
+  .input-enhanced {
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
